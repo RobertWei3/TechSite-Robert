@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // 🌟 新增 useEffect
 import { Box, useInput, useApp } from 'ink';
 import Tabs from './components/Tabs.js';
 import Footer from './components/Footer.js';
@@ -11,6 +11,17 @@ const TABS = ['About', 'Experience', 'Links'];
 export default function App() {
   const { exit } = useApp();
   const [activeTab, setActiveTab] = useState(0);
+  
+  // 🌟 新增：控制底部导航栏的光标闪烁
+  const [showTabCursor, setShowTabCursor] = useState(true);
+
+  // 🌟 新增：全局闪烁定时器 (每 400ms 切换一次)
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setShowTabCursor((prev) => !prev);
+    }, 400);
+    return () => clearInterval(blinkInterval);
+  }, []);
 
   useInput((input, key) => {
     if (input === 'q') {
@@ -19,10 +30,12 @@ export default function App() {
 
     if (input === '[' || (key.tab && key.shift)) {
       setActiveTab((prev) => (prev > 0 ? prev - 1 : TABS.length - 1));
+      setShowTabCursor(true); // 🌟 每次按键立刻强制显示光标，保证跟手感
     }
 
     if (input === ']' || (key.tab && !key.shift)) {
       setActiveTab((prev) => (prev < TABS.length - 1 ? prev + 1 : 0));
+      setShowTabCursor(true); // 🌟 每次按键立刻强制显示光标
     }
   });
 
@@ -55,7 +68,8 @@ export default function App() {
           borderRight={false}
           borderColor="gray"
         >
-          <Tabs tabs={TABS} activeTab={activeTab} />
+          {/* 🌟 修改点：把 showTabCursor 作为 props 传给 Tabs 组件 */}
+          <Tabs tabs={TABS} activeTab={activeTab} showCursor={showTabCursor} />
         </Box>
 
         <Footer />
