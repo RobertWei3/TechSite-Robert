@@ -1,0 +1,12 @@
+# igonre debug files
+/debug
+
+# ignore input images
+/src/assets/portrait-input.jpg
+/input/portrait.jpg
+
+node_modules/
+src/assets/portrait-input.jpg
+dist/
+*.log
+.DS_Store
