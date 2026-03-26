@@ -10,3 +10,6 @@ src/assets/portrait-input.jpg
 dist/
 *.log
 .DS_Store
+
+# EC2 key pair
+robert-aws-key.pem
