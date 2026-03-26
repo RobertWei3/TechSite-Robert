@@ -2,14 +2,15 @@
 
 > **A fully functional, retro-hacker terminal portfolio powered by React and Ink.**
 
-## 📸 Preview
-
-![Terminal Demo GIF](./demo/YufanWeiTechsite.gif)
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Ink](https://img.shields.io/badge/Ink-React_for_CLIs-black?style=for-the-badge)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+
+## 📸 Preview
+
+![Terminal Demo GIF](./demo/YufanWeiTechsite.gif)
 
 
 ## ✨ Features
